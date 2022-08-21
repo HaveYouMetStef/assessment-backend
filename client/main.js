@@ -12,6 +12,9 @@ const goalsBtn = document.getElementById("goalsButton");
 // inspired button
 const inspireBtn = document.getElementById("inspireButton");
 
+// new goals button
+const newGoalsBtn = document.getElementById("newGoalsButton")
+
 const getCompliment = () => {
   axios.get("http://localhost:4000/api/compliment/").then((res) => {
     const data = res.data;
@@ -46,8 +49,24 @@ const getInspired = () => {
   });
 };
 
+const postGoals = (body) => {
+    axios.post("http://localhost:4000/api/compliment/", body).then((res) => {
+        // id.value = ''
+        // goal.value = ''
+        const {data} = res.data;
+        alert(data)
+    })
+    let bodyObj = {
+        id: id.value, 
+        goal: goal.value
+    }
+    createGoal(bodyObj)
+    id.value = ''
+    goal.value = ''
+}
 complimentBtn.addEventListener("click", getCompliment);
 fortuneBtn.addEventListener("click", getFortune);
 footballBtn.addEventListener("mouseover", getFootball);
 goalsBtn.addEventListener("click", getGoals);
 inspireBtn.addEventListener("click", getInspired);
+newGoalsBtn.addEventListener('click', postGoals)

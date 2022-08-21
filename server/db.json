@@ -1,0 +1,18 @@
+[
+    {
+    "id": 1,
+    "goal":"Go to class"
+    },
+    {
+    "id": 2,
+    "goal":"Go to work"
+    },
+    {
+    "id": 3,
+    "goal":"Eat well"
+    },
+    {
+    "id": 4,
+    "goal":"Work out"
+    }
+]

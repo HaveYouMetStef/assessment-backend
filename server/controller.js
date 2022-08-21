@@ -1,3 +1,8 @@
+const goals = require('../server/db.json')
+// console.log(goals);
+
+let id = 5
+
 module.exports = {
   getCompliment: (req, res) => {
     const compliments = [
@@ -70,4 +75,15 @@ module.exports = {
 
     res.status(200).send(randomInspiration);
   },
+  postGoals: (req, res) => {
+    
+    let { goal } = req.body
+    // let { goal } = req.body
+    req.body.id = id
+    req.body.goal = goal
+    goals.push(req.body)
+    res.status(200).send(goals)
+   
+    id++ 
+  }
 };
