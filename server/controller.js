@@ -77,13 +77,13 @@ module.exports = {
   },
   postGoals: (req, res) => {
     
-    let { goal } = req.body
+    let { nextGoal } = req.body
     // let { goal } = req.body
     req.body.id = id
-    req.body.goal = goal
+    req.body.goal = nextGoal
     goals.push(req.body)
     res.status(200).send(goals)
-   
+  
     id++ 
   }
 };
